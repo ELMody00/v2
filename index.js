@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.listen(() => console.log("start btrolie"));
+app.listen(() => console.log("DARSH"));
 
 app.use('/ping', (req, res) => {
   res.send(new Date());
@@ -29,9 +29,6 @@ const moment = require('moment');
 const request = require('request');
 const dateFormat = require('dateformat');
 
-//لا تلعب اي شي في الكود
-
-
 
 const prefix = ""
 const developers = ""
@@ -49,27 +46,16 @@ client.on("message", message => {
      message.channel.send(`** قائمه الهيلب 
 			                 
 \`\`${prefix}limitbans  \`\` | لتحديد الحد الاقصى للباند
-
 \`\`${prefix}limitkicks \`\` | لتحديد الحد الاقصى للكيك 
-
 \`\`${prefix}limitroleDelete\`\` | لتحديد الحد الاقصى من حذف الرولات
-
 \`\`${prefix}limitchannelDelete\`\` | الحد الاقصى لحذ الرومات
-
 \`\`${prefix}antibots on\`\` | لمنع دخول لبوتات
-
 \`\`${prefix}antibots off\`\` | لعرض الاوامر العامله
-
 \`\` ${prefix}limittime 1000\`\` | تكتبها بعد متخلص
-
 \`\` ${prefix}setlog    \`\` | لعمل روم الوق
-
 \`\` ${prefix}antispread off\`\` | ايقاف منع الروابط
-
 \`\` ${prefix}antispread on\`\` | تشغيل منع الروابط
-
 \`\`${prefix}setfake \`\` | لتحديد كم يوم الوهمي ويتبند    
-
 \`\`${prefix}antifake off \`\` | لايقاف منع دخول الوهمي **`) 
      
      } 
@@ -132,21 +118,8 @@ let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));
   });
   
   })
-  
-  
-  
-  
-  
-  //btrolie
 
-
-
-
-//الحمايه
-
-
-
-let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));//btrolie
+let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));//DARSH
 let config = JSON.parse(fs.readFileSync("./config.json", "UTF8"));
 client.on("message", message => {
     if(!message.channel.guild) return;
@@ -154,28 +127,28 @@ client.on("message", message => {
     let num = message.content.split(" ").slice(1).join(" ");
     if(!anti[message.guild.id+message.author.id]) anti[message.guild.id+message.author.id] = {
         actions: 0
-    }//btrolie
+    }//DARSH
     if(!config[message.guild.id]) config[message.guild.id] = {
         banLimit: 3,
         chaDelLimit: 3,
-        roleDelLimit: 3,//btrolie
+        roleDelLimit: 3,//DARSH
         kickLimits: 3,
         roleCrLimits: 3,
         time: 30
     }
-if(message.content.startsWith(prefix + "limit")) {//btrolie
+if(message.content.startsWith(prefix + "limit")) {//DARSH
 
  
     if(!message.member.hasPermission('MANAGE_GUILD')) return;
     if(message.content.startsWith(prefix + "limitbans")) {
         if(!num) return message.channel.send("**→ | Supply a number !");
-        if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");//btrolie
+        if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");//DARSH
         config[message.guild.id].banLimit = num;
-        message.channel.send(`**→ | Changed bans limit to : ${config[message.guild.id].banLimit}.**`)//btrolie
+        message.channel.send(`**→ | Changed bans limit to : ${config[message.guild.id].banLimit}.**`)//DARSH
     }
     if(message.content.startsWith(prefix + "limitkicks")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
-        if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");//btrolie 
+        if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");//DARSH
         config[message.guild.id].kickLimits = num;
         message.channel.send(`**→ | Changed kicks limit to : ${config[message.guild.id].kickLimits}.**`)
     }
@@ -186,11 +159,11 @@ if(message.content.startsWith(prefix + "limit")) {//btrolie
         message.channel.send(`**→ | Changed Role Deleting limit to : ${config[message.guild.id].roleDelLimit}.**`)
     }
     if(message.content.startsWith(prefix + "limitroleCreate")) {
-        if(!num) return message.channel.send("**→ | Supply a number !**");//btrolie
+        if(!num) return message.channel.send("**→ | Supply a number !**");//DARSH
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
         config[message.guild.id].roleCrLimits = num;
         message.channel.send(`**→ | Changed Role Creation limit to : ${config[message.guild.id].roleCrLimits}.**`)
-    }//Zine , Mohamed Tarek , Kbosh
+    }//DARSH
     if(message.content.startsWith(prefix + "limitchannelDelete")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
@@ -200,12 +173,12 @@ if(message.content.startsWith(prefix + "limit")) {//btrolie
     if(message.content.startsWith(prefix + "limittime")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
-        config[message.guild.id].time = num;//btrolie//btrolie
+        config[message.guild.id].time = num;//DARSH
         message.channel.send(`**→ | Changed Times limit to : ${config[message.guild.id].time}.**`)
     }
     fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
         if(e) throw e;
-    });//btrolie
+    });//DARSH
     fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
         if(e) throw e;
         });
@@ -216,15 +189,15 @@ client.on("channelDelete", async channel => {
         type: 'CHANNEL_DELETE'
     }).then(audit => audit.entries.first())
     console.log(entry1.executor.username)
-    const entry = entry1.executor//btrolie
+    const entry = entry1.executor//DARSH
     if (!config[channel.guild.id]) config[channel.guild.id] = {
         banLimit: 3,
         chaDelLimit: 3,
         roleDelLimit: 3,
         kickLimits: 3,
-        roleCrLimits: 3//btrolie
+        roleCrLimits: 3//DARSH
     }
-    if (!anti[channel.guild.id + entry.id]) {//btrolie
+    if (!anti[channel.guild.id + entry.id]) {//DARSH
         anti[channel.guild.id + entry.id] = {
             actions: 1
         }
@@ -232,21 +205,21 @@ client.on("channelDelete", async channel => {
             anti[channel.guild.id + entry.id].actions = "0"
         }, config[channel.guild.id].time * 1000)
     } else {
-        anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)//btrolie
+        anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)//DARSH
         console.log("TETS");
         setTimeout(() => {
             anti[channel.guild.id + entry.id].actions = "0"
-        }, config[channel.guild.id].time * 1000)//btrolie
+        }, config[channel.guild.id].time * 1000)//DARSH
         if (anti[channel.guild.id + entry.id].actions >= config[channel.guild.id].chaDelLimit) {
             channel.guild.members.get(entry.id).ban().catch(e => channel.guild.owner.send(`**→ | ${entry.username} , Deleted many __Channles__.**`))
             anti[channel.guild.id + entry.id].actions = "0"
-            fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {//btrolie
+            fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {//DARSH
                 if (e) throw e;
-            });//btrolie
+            });//DARSH
             fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
                 if (e) throw e;
             });
-        }//btrolie
+        }//DARSH
     }
 
     fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
@@ -255,7 +228,7 @@ client.on("channelDelete", async channel => {
     fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
         if (e) throw e;
     });
-});//btrolie
+});//DARSH
 
 client.on("roleDelete", async channel => {
     const entry1 = await channel.guild.fetchAuditLogs({
@@ -265,7 +238,7 @@ client.on("roleDelete", async channel => {
     const entry = entry1.executor
     if (!config[channel.guild.id]) config[channel.guild.id] = {
         banLimit: 3,
-        chaDelLimit: 3,//btrolie
+        chaDelLimit: 3,//DARSH
         roleDelLimit: 3,
         kickLimits: 3,
         roleCrLimits: 3
@@ -280,7 +253,7 @@ client.on("roleDelete", async channel => {
     } else {
         anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)
         console.log("TETS");
-        setTimeout(() => {//btrolie
+        setTimeout(() => {//DARSH
             anti[channel.guild.id + entry.id].actions = "0"
         }, config[channel.guild.id].time * 1000)
         if (anti[channel.guild.id + entry.id].actions >= config[channel.guild.id].roleDelLimit) {
@@ -293,7 +266,7 @@ client.on("roleDelete", async channel => {
                 if (e) throw e;
             });
         }
-    }//btrolie
+    }//DARSH
 
     fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
         if (e) throw e;
@@ -312,7 +285,7 @@ client.on("roleCreate", async channel => {
     if (!config[channel.guild.id]) config[channel.guild.id] = {
         banLimit: 3,
         chaDelLimit: 3,
-        roleDelLimit: 3,//btrolie
+        roleDelLimit: 3,//DARSH
         kickLimits: 3,
         roleCrLimits: 3
     }
@@ -325,7 +298,7 @@ client.on("roleCreate", async channel => {
         }, config[channel.guild.id].time * 1000)
     } else {
         anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)
-        console.log("TETS");//btrolie
+        console.log("TETS");//DARSH
         setTimeout(() => {
             anti[channel.guild.id + entry.id].actions = "0"
         }, config[channel.guild.id].time * 1000)
@@ -348,7 +321,7 @@ client.on("roleCreate", async channel => {
         if (e) throw e;
     });
 });
-//btrolie
+//DARSH
 
 
 
